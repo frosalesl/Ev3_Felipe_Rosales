@@ -1,0 +1,35 @@
+{% extends "Base.html" %}
+{% block title %}Ejercicio 1{% endblock %}
+
+{% block content %}
+<form method="POST" class="formulario">
+    <h2>Formulario de Notas</h2>
+
+    <label>Nota 1:</label>
+    <input type="number" name="nota1" min="10" max="70" step="1" required value="{{ nota1 or '' }}">
+
+    <label>Nota 2:</label>
+    <input type="number" name="nota2" min="10" max="70" step="1" required value="{{ nota2 or '' }}">
+
+    <label>Nota 3:</label>
+    <input type="number" name="nota3" min="10" max="70" step="1" required value="{{ nota3 or '' }}">
+
+    <label>Asistencia (%):</label>
+    <input type="number" name="asistencia" min="0" max="100" step="1" required value="{{ asistencia or '' }}">
+
+    <button type="submit" class="boton-formulario">Enviar</button>
+
+    {% if promedio is not none %}
+        <div class="resultado resultado-izquierda">
+            <p> {{ promedio }}</p>
+            <p> {{ estado }}</p>
+        </div>
+    {% endif %}
+
+    {% if error %}
+        <div class="resultado" style="color: red;">
+            <p>{{ error }}</p>
+        </div>
+    {% endif %}
+</form>
+{% endblock %}

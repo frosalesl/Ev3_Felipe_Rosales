@@ -1,0 +1,24 @@
+{% extends "Base.html" %}
+{% block title %}Ejercicio 2{% endblock %}
+
+{% block content %}
+<form method="POST" class="formulario formulario-nombres">
+    <label>Nombre 1:</label>
+    <input type="text" name="nombre1" required value="{{ nombre1 or '' }}">
+
+    <label>Nombre 2:</label>
+    <input type="text" name="nombre2" required value="{{ nombre2 or '' }}">
+
+    <label>Nombre 3:</label>
+    <input type="text" name="nombre3" required value="{{ nombre3 or '' }}">
+
+    <button type="submit" class="boton-formulario">Enviar</button>
+
+    {% if nombre_mayor %}
+        <div class="resultado resultado-centro">
+            <p>El nombre con mayor cantidad de caracteres es: {{ nombre_mayor }}</p>
+            <p>El nombre tiene: {{ longitud }} caracteres</p>
+        </div>
+    {% endif %}
+</form>
+{% endblock %}
